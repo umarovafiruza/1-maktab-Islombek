@@ -1,0 +1,473 @@
+/* ==========================================================================
+   MENING MAKTABCHAM - Responsive CSS
+   Mobil, planshet va desktop ekranlari uchun to'liq moslashuvchanlik
+   ========================================================================== */
+
+/* --------------------------------------------------------------------------
+   1. Katta Ekranlar va Desktop (min-width: 1200px)
+   -------------------------------------------------------------------------- */
+@media (min-width: 1200px) {
+  .container {
+    max-width: 1240px;
+    padding: 0 2rem;
+  }
+}
+
+/* --------------------------------------------------------------------------
+   2. O'rta Ekranlar va Kichik Noutbuklar (max-width: 1199px)
+   -------------------------------------------------------------------------- */
+@media (max-width: 1199px) {
+  .hero-title {
+    font-size: 2.7rem;
+  }
+
+  .stats-grid {
+    grid-template-columns: repeat(4, 1fr);
+    gap: 1.25rem;
+  }
+
+  .stat-number {
+    font-size: 2.3rem;
+  }
+
+  .hero-grid {
+    gap: 2.5rem;
+  }
+
+  .about-grid {
+    gap: 2.5rem;
+  }
+}
+
+/* --------------------------------------------------------------------------
+   3. Planshetlar (Landscape) (max-width: 1024px)
+   -------------------------------------------------------------------------- */
+@media (max-width: 1024px) {
+  .hero-title {
+    font-size: 2.4rem;
+  }
+
+  .stats-grid {
+    grid-template-columns: repeat(2, 1fr);
+    gap: 1.5rem;
+  }
+
+  .footer-grid {
+    grid-template-columns: repeat(2, 1fr);
+    gap: 2.5rem;
+  }
+
+  .contact-cards-grid {
+    grid-template-columns: repeat(2, 1fr);
+  }
+}
+
+/* --------------------------------------------------------------------------
+   4. Planshetlar va Mobil Ekranlar (max-width: 991px)
+   -------------------------------------------------------------------------- */
+@media (max-width: 991px) {
+  /* Navbar va Mobil Menyu */
+  .navbar {
+    height: 72px;
+  }
+
+  .mobile-toggle {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    width: 44px;
+    height: 44px;
+    border-radius: var(--radius-sm);
+    background: rgba(11, 37, 69, 0.05);
+    color: var(--navy-primary);
+    font-size: 1.4rem;
+    cursor: pointer;
+    border: none;
+    transition: var(--transition);
+  }
+
+  .mobile-toggle:hover {
+    background: rgba(11, 37, 69, 0.1);
+  }
+
+  .nav-menu {
+    position: fixed;
+    top: 0;
+    right: -100%;
+    width: min(340px, 85vw);
+    height: 100vh;
+    background-color: var(--bg-white);
+    flex-direction: column;
+    align-items: stretch;
+    padding: 4.5rem 1.25rem 2.5rem 1.25rem;
+    box-shadow: -8px 0 30px rgba(0, 0, 0, 0.2);
+    transition: right 0.35s cubic-bezier(0.4, 0, 0.2, 1);
+    overflow-y: auto;
+    z-index: 2000;
+    gap: 0;
+  }
+
+  .nav-menu.active {
+    right: 0;
+  }
+
+
+
+  .nav-item {
+    width: 100%;
+    border-bottom: 1px solid var(--card-border);
+  }
+
+  .nav-link {
+    width: 100%;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 0.95rem 0.5rem;
+    font-size: 1rem;
+    font-weight: 600;
+  }
+
+  .dropdown-menu {
+    position: static;
+    box-shadow: none;
+    border: none;
+    padding: 0.25rem 0.5rem 0.5rem 1rem;
+    background-color: var(--bg-light);
+    border-radius: var(--radius-sm);
+    display: none;
+    opacity: 1;
+    visibility: visible;
+    transform: none;
+    transition: none;
+    margin-bottom: 0.5rem;
+  }
+
+  .nav-item.open > .dropdown-menu {
+    display: block;
+    animation: fadeIn 0.25s ease;
+  }
+
+  .nav-item.open > .nav-link i.fa-chevron-down {
+    transform: rotate(180deg);
+  }
+
+  .dropdown-item {
+    padding: 0.65rem 0.75rem;
+    font-size: 0.92rem;
+  }
+
+  .menu-overlay {
+    display: none;
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100vh;
+    background: rgba(5, 22, 42, 0.65);
+    backdrop-filter: blur(3px);
+    z-index: 1990;
+  }
+
+  .menu-overlay.active {
+    display: block;
+  }
+
+  /* Bo'limlar Layout */
+  .hero-grid {
+    grid-template-columns: 1fr;
+    gap: 3.5rem;
+    text-align: center;
+  }
+
+  .hero-content {
+    max-width: 100%;
+    margin: 0 auto;
+  }
+
+  .hero-btns {
+    justify-content: center;
+  }
+
+  .hero-stats-row {
+    justify-content: center;
+  }
+
+  .hero-media {
+    max-width: 520px;
+    margin: 0 auto;
+    width: 100%;
+  }
+
+  .about-grid {
+    grid-template-columns: 1fr;
+    gap: 3rem;
+  }
+
+  .about-media {
+    max-width: 540px;
+    margin: 0 auto;
+    width: 100%;
+  }
+}
+
+/* --------------------------------------------------------------------------
+   5. Smartfonlar (Portret va Landscape) (max-width: 768px)
+   -------------------------------------------------------------------------- */
+@media (max-width: 768px) {
+  html {
+    font-size: 15px;
+  }
+
+  .topbar {
+    display: none;
+  }
+
+  .navbar {
+    height: 66px;
+  }
+
+  .logo-icon {
+    width: 40px;
+    height: 40px;
+    font-size: 1.15rem;
+  }
+
+  .logo-title {
+    font-size: 1.05rem;
+  }
+
+  .logo-subtitle {
+    font-size: 0.65rem;
+  }
+
+  /* Hero */
+  .hero-section {
+    padding: 3.5rem 0 4.5rem 0;
+  }
+
+  .hero-title {
+    font-size: 2.1rem;
+    line-height: 1.25;
+  }
+
+  .hero-desc {
+    font-size: 1rem;
+    margin-bottom: 1.5rem;
+  }
+
+  .hero-img-card img {
+    height: 320px;
+  }
+
+  .hero-floating-card {
+    left: 10px;
+    bottom: -15px;
+    padding: 0.75rem 1rem;
+    max-width: 230px;
+  }
+
+  .floating-icon {
+    width: 36px;
+    height: 36px;
+    font-size: 1rem;
+  }
+
+  .floating-text h5 {
+    font-size: 0.9rem;
+  }
+
+  .floating-text p {
+    font-size: 0.72rem;
+  }
+
+  /* Sarlavhalar */
+  .section-header {
+    margin-bottom: 2.5rem;
+  }
+
+  .section-header .section-title {
+    font-size: 1.9rem;
+  }
+
+  .about-content h2 {
+    font-size: 1.85rem;
+  }
+
+  .about-features {
+    grid-template-columns: 1fr;
+    gap: 1rem;
+  }
+
+  .about-img-main {
+    height: 300px;
+  }
+
+  .about-experience-badge {
+    right: 10px;
+    top: 10px;
+    padding: 0.75rem 1rem;
+  }
+
+  .about-experience-badge .exp-num {
+    font-size: 1.7rem;
+  }
+
+  /* Statistika */
+  .stats-banner {
+    padding: 3rem 0;
+  }
+
+  .stats-grid {
+    grid-template-columns: repeat(2, 1fr);
+    gap: 1rem;
+  }
+
+  .stat-box {
+    padding: 1.2rem 0.75rem;
+  }
+
+  .stat-icon {
+    font-size: 1.8rem;
+  }
+
+  .stat-number {
+    font-size: 2.1rem;
+  }
+
+  .stat-label {
+    font-size: 0.85rem;
+  }
+
+  /* Kartalar */
+  .leadership-grid,
+  .students-grid,
+  .achievements-grid,
+  .news-grid {
+    grid-template-columns: 1fr;
+    gap: 1.5rem;
+  }
+
+  .contact-cards-grid {
+    grid-template-columns: 1fr;
+    gap: 1.25rem;
+  }
+
+  .gallery-grid {
+    grid-template-columns: repeat(auto-fill, minmax(240px, 1fr));
+    gap: 1rem;
+  }
+
+  .gallery-item {
+    height: 200px;
+  }
+
+  .map-container {
+    height: 300px;
+    margin-top: 2rem;
+  }
+
+  /* Footer */
+  .footer {
+    padding: 3.5rem 0 1.5rem 0;
+  }
+
+  .footer-grid {
+    grid-template-columns: 1fr;
+    gap: 2rem;
+  }
+
+  .footer-bottom {
+    flex-direction: column;
+    gap: 0.75rem;
+    text-align: center;
+  }
+
+  .page-header {
+    padding: 3.5rem 0;
+  }
+
+  .page-header-title {
+    font-size: 2.1rem;
+  }
+
+  /* Lightbox */
+  .lightbox-close {
+    top: 15px;
+    right: 20px;
+    font-size: 2.5rem;
+  }
+
+  .lightbox-modal {
+    padding: 1rem;
+  }
+}
+
+/* --------------------------------------------------------------------------
+   6. Kichik Smartfonlar (max-width: 480px)
+   -------------------------------------------------------------------------- */
+@media (max-width: 480px) {
+  html {
+    font-size: 14px;
+  }
+
+  .container {
+    padding: 0 1rem;
+  }
+
+  .hero-title {
+    font-size: 1.8rem;
+  }
+
+  .hero-badge {
+    font-size: 0.75rem;
+    padding: 0.35rem 0.75rem;
+  }
+
+  .hero-btns {
+    flex-direction: column;
+    width: 100%;
+  }
+
+  .hero-btns .btn {
+    width: 100%;
+  }
+
+  .hero-stats-row {
+    flex-direction: row;
+    flex-wrap: wrap;
+    justify-content: space-around;
+    gap: 1.25rem;
+  }
+
+  .hero-stat-item h4 {
+    font-size: 1.5rem;
+  }
+
+  .hero-img-card img {
+    height: 260px;
+  }
+
+  .stats-grid {
+    grid-template-columns: 1fr;
+  }
+
+  .achievements-tabs,
+  .gallery-filters {
+    gap: 0.4rem;
+  }
+
+  .tab-btn,
+  .filter-btn {
+    padding: 0.45rem 1rem;
+    font-size: 0.8rem;
+  }
+
+  .contact-card {
+    padding: 1.5rem 1rem;
+  }
+
+  .content-box {
+    padding: 1.5rem 1.25rem;
+  }
+}

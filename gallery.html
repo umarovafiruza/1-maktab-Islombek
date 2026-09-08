@@ -1,0 +1,319 @@
+<!DOCTYPE html>
+<html lang="uz">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Galereya — Mening Maktabcham</title>
+  <link rel="icon" type="image/svg+xml" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24' fill='%23C59B27'><path d='M12 3L1 9l4 2.18v6L12 21l7-3.82v-6l2-1.09V17h2V9L12 3zm6.82 6L12 12.72 5.18 9 12 5.28 18.82 9zM17 15.99l-5 2.73-5-2.73v-3.72L12 15l5-2.73v3.72z'/></svg>">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
+  <link rel="stylesheet" href="css/style.css">
+  <link rel="stylesheet" href="css/responsive.css">
+</head>
+<body>
+
+  <!-- TOPBAR -->
+  <div class="topbar">
+    <div class="container">
+      <div class="topbar-info">
+        <span><i class="fas fa-clock"></i> Dushanba - Shanba: 08:00 - 17:00</span>
+        <a href="tel:+998909649491"><i class="fas fa-phone-alt"></i> +998 90 964-94-91</a>
+      </div>
+      <div class="topbar-social">
+        <a href="https://t.me" target="_blank"><i class="fab fa-telegram-plane"></i></a>
+        <a href="https://instagram.com" target="_blank"><i class="fab fa-instagram"></i></a>
+        <a href="https://facebook.com" target="_blank"><i class="fab fa-facebook-f"></i></a>
+        <a href="https://youtube.com" target="_blank"><i class="fab fa-youtube"></i></a>
+      </div>
+    </div>
+  </div>
+
+  <!-- NAVBAR -->
+  <header class="navbar-wrapper">
+    <div class="container">
+      <nav class="navbar">
+        <a href="index.html" class="logo">
+          <div class="logo-icon"><i class="fas fa-graduation-cap"></i></div>
+          <div class="logo-text">
+            <span class="logo-title">Mening Maktabcham</span>
+            <span class="logo-subtitle">1-sonli Davlat Ixtisoslashtirilgan Maktabi</span>
+          </div>
+        </a>
+
+        <ul class="nav-menu">
+          <li class="nav-item"><a href="index.html" class="nav-link">Bosh sahifa</a></li>
+          <li class="nav-item"><a href="about.html" class="nav-link">Maktab haqida</a></li>
+          <li class="nav-item has-dropdown">
+            <a href="#" class="nav-link">Jamoa <i class="fas fa-chevron-down"></i></a>
+            <ul class="dropdown-menu">
+              <li><a href="management.html" class="dropdown-item"><i class="fas fa-user-tie"></i> Rahbariyat</a></li>
+              <li><a href="teachers.html" class="dropdown-item"><i class="fas fa-chalkboard-teacher"></i> O‘qituvchilar</a></li>
+            </ul>
+          </li>
+          <li class="nav-item has-dropdown">
+            <a href="#" class="nav-link">O‘quvchilar <i class="fas fa-chevron-down"></i></a>
+            <ul class="dropdown-menu">
+              <li><a href="students.html" class="dropdown-item"><i class="fas fa-user-graduate"></i> Iqtidorli o‘quvchilar</a></li>
+              <li><a href="achievements.html" class="dropdown-item"><i class="fas fa-award"></i> Yutuqlar</a></li>
+              <li><a href="events.html" class="dropdown-item"><i class="fas fa-calendar-alt"></i> Tadbirlar</a></li>
+            </ul>
+          </li>
+          <li class="nav-item has-dropdown active">
+            <a href="#" class="nav-link">Media <i class="fas fa-chevron-down"></i></a>
+            <ul class="dropdown-menu">
+              <li><a href="gallery.html" class="dropdown-item"><i class="fas fa-images"></i> Galereya</a></li>
+            </ul>
+          </li>
+          <li class="nav-item"><a href="contact.html" class="nav-link">Aloqa</a></li>
+        </ul>
+
+        <div class="nav-actions">
+          <button class="mobile-toggle" aria-label="Menyuni ochish"><i class="fas fa-bars"></i></button>
+        </div>
+      </nav>
+    </div>
+  </header>
+
+  <!-- PAGE HEADER -->
+  <section class="page-header">
+    <div class="container">
+      <h1 class="page-header-title">Foto va Media Galereya</h1>
+      <div class="page-breadcrumbs">
+        <a href="index.html">Bosh sahifa</a>
+        <span class="sep">/</span>
+        <a href="#">Media</a>
+        <span class="sep">/</span>
+        <span>Galereya</span>
+      </div>
+    </div>
+  </section>
+
+  <!-- ASOSIY MAZMUN -->
+  <main style="padding: 5rem 0;">
+    <div class="container">
+      <div class="section-header">
+        <span class="section-subtitle">Maktab Hayotining Yoniq Onlari</span>
+        <h2 class="section-title">Maktabimiz Fotolavhalarda</h2>
+        <p class="section-desc">
+          Boshqotirma darslar, quvnoq tanaffuslar, sport musobaqalari va bayramona tantanalar lahzalari.
+        </p>
+      </div>
+
+      <!-- Filtrlash tugmalari -->
+      <div class="gallery-filters">
+        <button class="filter-btn active" data-filter="all">Barchasi</button>
+        <button class="filter-btn" data-filter="campus">Maktab binosi</button>
+        <button class="filter-btn" data-filter="education">O‘quv jarayoni</button>
+        <button class="filter-btn" data-filter="events">Tadbirlar</button>
+        <button class="filter-btn" data-filter="life">Maktab hayoti</button>
+        <button class="filter-btn" data-filter="sport">Sport</button>
+      </div>
+
+      <!-- Kengaytirilgan Galereya Gridi (15 ta haqiqiy maktab fotosuratlari) -->
+      <div class="gallery-grid">
+        
+        <div class="gallery-item" data-category="events">
+          <img src="images/savodxonlik-bayrami-jamoa.jpg" alt="Savodxonlik bayrami">
+          <div class="gallery-overlay">
+            <h5>Savodxonlik bayrami tantanasi</h5>
+            <span>Tadbirlar</span>
+          </div>
+          <div class="gallery-zoom-icon"><i class="fas fa-search-plus"></i></div>
+        </div>
+
+        <div class="gallery-item" data-category="campus">
+          <img src="images/sinfxona-kutubxona-dars.jpg" alt="Huquqiy kutubxona xonasi">
+          <div class="gallery-overlay">
+            <h5>Huquqiy kutubxona va dars xonasi</h5>
+            <span>Maktab binosi</span>
+          </div>
+          <div class="gallery-zoom-icon"><i class="fas fa-search-plus"></i></div>
+        </div>
+
+        <div class="gallery-item" data-category="education">
+          <img src="images/smart-sinf-dars.jpg" alt="Smart sinfxona darsi">
+          <div class="gallery-overlay">
+            <h5>Interaktiv smart sinfxona mashg‘uloti</h5>
+            <span>O‘quv jarayoni</span>
+          </div>
+          <div class="gallery-zoom-icon"><i class="fas fa-search-plus"></i></div>
+        </div>
+
+        <div class="gallery-item" data-category="sport">
+          <img src="images/sport-zali-voleybol.jpg" alt="Maktab sport zali">
+          <div class="gallery-overlay">
+            <h5>Yopiq sport majmuasi va voleybol maydoni</h5>
+            <span>Sport</span>
+          </div>
+          <div class="gallery-zoom-icon"><i class="fas fa-search-plus"></i></div>
+        </div>
+
+        <div class="gallery-item" data-category="events">
+          <img src="images/alifbe-bayrami-sahna.jpg" alt="Alifbe bayrami sahnada">
+          <div class="gallery-overlay">
+            <h5>Alifbe bayrami va sahna bezaklari</h5>
+            <span>Tadbirlar</span>
+          </div>
+          <div class="gallery-zoom-icon"><i class="fas fa-search-plus"></i></div>
+        </div>
+
+        <div class="gallery-item" data-category="education">
+          <img src="images/chqbt-darsi-harbiy.jpg" alt="Harbiy-vatanparvarlik darsi">
+          <div class="gallery-overlay">
+            <h5>Harbiy-vatanparvarlik dars jarayoni</h5>
+            <span>O‘quv jarayoni</span>
+          </div>
+          <div class="gallery-zoom-icon"><i class="fas fa-search-plus"></i></div>
+        </div>
+
+        <div class="gallery-item" data-category="sport">
+          <img src="images/oq-otish-mashguloti.jpg" alt="Merganlik mashg'uloti">
+          <div class="gallery-overlay">
+            <h5>Pnevmatik quroldan o‘q otish mashqi</h5>
+            <span>Sport</span>
+          </div>
+          <div class="gallery-zoom-icon"><i class="fas fa-search-plus"></i></div>
+        </div>
+
+        <div class="gallery-item" data-category="life">
+          <img src="images/rahbariyat-yigilish.jpg" alt="Faollar zalida majlis">
+          <div class="gallery-overlay">
+            <h5>Maktab rahbariyati va ota-onalar yig‘ilishi</h5>
+            <span>Maktab hayoti</span>
+          </div>
+          <div class="gallery-zoom-icon"><i class="fas fa-search-plus"></i></div>
+        </div>
+
+        <div class="gallery-item" data-category="sport">
+          <img src="images/voleybol-musobaqa.jpg" alt="Voleybol musobaqasi">
+          <div class="gallery-overlay">
+            <h5>Sinflararo voleybol bellashuvi</h5>
+            <span>Sport</span>
+          </div>
+          <div class="gallery-zoom-icon"><i class="fas fa-search-plus"></i></div>
+        </div>
+
+        <div class="gallery-item" data-category="events">
+          <img src="images/alifbe-bayrami-raqslar.jpg" alt="O'quvchilar raqsi">
+          <div class="gallery-overlay">
+            <h5>O‘quvchilar badiiy-musiqiy chiqishlari</h5>
+            <span>Tadbirlar</span>
+          </div>
+          <div class="gallery-zoom-icon"><i class="fas fa-search-plus"></i></div>
+        </div>
+
+        <div class="gallery-item" data-category="education">
+          <img src="images/harbiy-ustoz-sinfda.jpg" alt="Ko'rgazmali dars">
+          <div class="gallery-overlay">
+            <h5>Ko‘rgazmali qurol-aslahalar bilan dars</h5>
+            <span>O‘quv jarayoni</span>
+          </div>
+          <div class="gallery-zoom-icon"><i class="fas fa-search-plus"></i></div>
+        </div>
+
+        <div class="gallery-item" data-category="life">
+          <img src="images/rahbariyat-ochiq-dars.jpg" alt="Ochiq dars">
+          <div class="gallery-overlay">
+            <h5>Ochiq dars va ustozlar davra suhbati</h5>
+            <span>Maktab hayoti</span>
+          </div>
+          <div class="gallery-zoom-icon"><i class="fas fa-search-plus"></i></div>
+        </div>
+
+        <div class="gallery-item" data-category="sport">
+          <img src="images/oq-otish-tiri.jpg" alt="Maktab tiri">
+          <div class="gallery-overlay">
+            <h5>Maktab otish tiri va nishonga olish</h5>
+            <span>Sport</span>
+          </div>
+          <div class="gallery-zoom-icon"><i class="fas fa-search-plus"></i></div>
+        </div>
+
+        <div class="gallery-item" data-category="education">
+          <img src="images/vatanparvarlik-darsi.jpg" alt="ChQBT amaliyoti">
+          <div class="gallery-overlay">
+            <h5>ChQBT amaliy bilimlarni mustahkamlash</h5>
+            <span>O‘quv jarayoni</span>
+          </div>
+          <div class="gallery-zoom-icon"><i class="fas fa-search-plus"></i></div>
+        </div>
+
+        <div class="gallery-item" data-category="events">
+          <img src="images/madhiya-ijrosi-sahna.jpg" alt="Madhiya ijrosi">
+          <div class="gallery-overlay">
+            <h5>Davlat madhiyasi tantanali ijrosi</h5>
+            <span>Tadbirlar</span>
+          </div>
+          <div class="gallery-zoom-icon"><i class="fas fa-search-plus"></i></div>
+        </div>
+
+      </div>
+    </div>
+  </main>
+
+  <!-- Lightbox Modal -->
+  <div class="lightbox-modal">
+    <div class="lightbox-content">
+      <span class="lightbox-close">&times;</span>
+      <img src="" alt="Kattalashtirilgan rasm" id="lightbox-img">
+      <div class="lightbox-caption" id="lightbox-caption"></div>
+    </div>
+  </div>
+
+  <!-- FOOTER -->
+  <footer class="footer">
+    <div class="container">
+      <div class="footer-grid">
+        <div class="footer-brand">
+          <a href="index.html" class="logo">
+            <div class="logo-icon" style="background: rgba(255,255,255,0.1); border-color: var(--gold-light);">
+              <i class="fas fa-graduation-cap"></i>
+            </div>
+            <div class="logo-text">
+              <span class="logo-title">Mening Maktabcham</span>
+              <span class="logo-subtitle">1-sonli Davlat Ixtisoslashtirilgan Maktabi</span>
+            </div>
+          </a>
+          <p>Yuksak ma'naviyatli, zamonaviy bilim va texnologiyalarni mukammal egallagan barkamol avlodni tarbiyalash bizning oliy maqsadimizdir.</p>
+        </div>
+
+        <div class="footer-col">
+          <h4>Asosiy Bo‘limlar</h4>
+          <ul class="footer-links">
+            <li><a href="index.html"><i class="fas fa-angle-right"></i> Bosh sahifa</a></li>
+            <li><a href="about.html"><i class="fas fa-angle-right"></i> Maktab haqida</a></li>
+            <li><a href="management.html"><i class="fas fa-angle-right"></i> Rahbariyat</a></li>
+            <li><a href="teachers.html"><i class="fas fa-angle-right"></i> O‘qituvchilar</a></li>
+            <li><a href="students.html"><i class="fas fa-angle-right"></i> Iqtidorli o‘quvchilar</a></li>
+          </ul>
+        </div>
+
+        <div class="footer-col">
+          <h4>Foydali Havolalar</h4>
+          <ul class="footer-links">
+            <li><a href="achievements.html"><i class="fas fa-angle-right"></i> Yutuqlar</a></li>
+            <li><a href="events.html"><i class="fas fa-angle-right"></i> Tadbirlar</a></li>
+            <li><a href="gallery.html"><i class="fas fa-angle-right"></i> Galereya</a></li>
+            <li><a href="contact.html"><i class="fas fa-angle-right"></i> Aloqa</a></li>
+          </ul>
+        </div>
+
+        <div class="footer-col">
+          <h4>Bog‘lanish</h4>
+          <ul class="footer-links">
+            <li><a href="tel:+998909649491"><i class="fas fa-phone-alt"></i> +998 90 964-94-91</a></li>
+            <li><a href="mailto:info@maktabcham.uz"><i class="fas fa-envelope"></i> info@maktabcham.uz</a></li>
+            <li><a href="#"><i class="fas fa-map-marker-alt"></i> Toshkent viloyati, Bekobod shahri</a></li>
+          </ul>
+        </div>
+      </div>
+
+      <div class="footer-bottom">
+        <p>&copy; 2026 "Mening Maktabcham" 1-sonli Davlat Ixtisoslashtirilgan Maktabi. Barcha huquqlar himoyalangan.</p>
+      </div>
+    </div>
+  </footer>
+
+  <script src="js/main.js"></script>
+  <script src="js/gallery.js"></script>
+</body>
+</html>
