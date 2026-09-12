@@ -83,6 +83,12 @@ body.page-exit {
   transition: opacity 0.22s ease, transform 0.22s ease;
 }
 
+body.menu-open,
+html.menu-open {
+  overflow: hidden !important;
+  touch-action: none !important;
+}
+
 h1, h2, h3, h4, h5, h6 {
   color: var(--navy-primary);
   font-weight: 700;

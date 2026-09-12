@@ -40,7 +40,10 @@ document.addEventListener('DOMContentLoaded', () => {
     navMenu.appendChild(menuFooter);
   }
 
+  let savedScrollY = 0;
+
   function openMenu() {
+    savedScrollY = window.scrollY || window.pageYOffset || document.documentElement.scrollTop || 0;
     if (navMenu) navMenu.classList.add('active');
     if (overlay) overlay.classList.add('active');
     if (mobileToggle) {
@@ -53,7 +56,15 @@ document.addEventListener('DOMContentLoaded', () => {
         icon.classList.add('fa-times');
       }
     }
-    document.body.style.overflow = 'hidden';
+
+    // Scroll-lock: orqa tomon umuman scroll bo'lmasligi uchun
+    document.documentElement.classList.add('menu-open');
+    document.body.classList.add('menu-open');
+    document.body.style.position = 'fixed';
+    document.body.style.top = `-${savedScrollY}px`;
+    document.body.style.left = '0';
+    document.body.style.right = '0';
+    document.body.style.width = '100%';
   }
 
   function closeMenu() {
@@ -69,7 +80,18 @@ document.addEventListener('DOMContentLoaded', () => {
         icon.classList.add('fa-bars');
       }
     }
-    document.body.style.overflow = '';
+
+    // Scroll-lockni yechish va foydalanuvchini aynan o'sha joyiga qaytarish
+    const topOffset = document.body.style.top;
+    const scrollY = topOffset ? Math.abs(parseInt(topOffset, 10)) : savedScrollY;
+    document.body.style.position = '';
+    document.body.style.top = '';
+    document.body.style.left = '';
+    document.body.style.right = '';
+    document.body.style.width = '';
+    document.documentElement.classList.remove('menu-open');
+    document.body.classList.remove('menu-open');
+    window.scrollTo(0, scrollY);
   }
 
   if (mobileToggle) {
@@ -85,7 +107,19 @@ document.addEventListener('DOMContentLoaded', () => {
 
   if (overlay) {
     overlay.addEventListener('click', closeMenu);
+    overlay.addEventListener('touchmove', (e) => {
+      e.preventDefault();
+    }, { passive: false });
   }
+
+  // Orqa fon teginish (touch) orqali ham qimirlamasligini ta'minlash
+  document.addEventListener('touchmove', (e) => {
+    if (document.body.classList.contains('menu-open')) {
+      if (!e.target.closest('.nav-menu')) {
+        e.preventDefault();
+      }
+    }
+  }, { passive: false });
 
   document.addEventListener('click', (e) => {
     if (navMenu && navMenu.classList.contains('active')) {
