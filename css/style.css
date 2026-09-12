@@ -1936,7 +1936,7 @@ img {
   font-size: 0.9rem;
   color: var(--text-muted);
   line-height: 1.6;
-  margin-bottom: 1.25rem;
+  margin-bottom: 0;
   flex-grow: 1;
   text-align: center;
 }
