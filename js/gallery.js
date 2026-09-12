@@ -1,12 +1,7 @@
-/* ==========================================================================
-   MENING MAKTABCHAM - Galereya va Lightbox (gallery.js)
-   ========================================================================== */
-
 document.addEventListener('DOMContentLoaded', () => {
   const filterBtns = document.querySelectorAll('.filter-btn');
   const galleryItems = document.querySelectorAll('.gallery-item');
 
-  // Galereya filtrlari
   if (filterBtns.length > 0) {
     filterBtns.forEach(btn => {
       btn.addEventListener('click', () => {
@@ -28,7 +23,6 @@ document.addEventListener('DOMContentLoaded', () => {
     });
   }
 
-  // Lightbox Modal
   let lightbox = document.querySelector('.lightbox-modal');
   if (!lightbox) {
     lightbox = document.createElement('div');

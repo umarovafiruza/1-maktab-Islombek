@@ -1,22 +1,15 @@
-/* ==========================================================================
-   MENING MAKTABCHAM - Asosiy JavaScript (main.js)
-   Interaktiv elementlar, Mobil menyu, Hisoblagichlar va Tablar
-   ========================================================================== */
-
 document.addEventListener('DOMContentLoaded', () => {
-  // 1. Sticky Navbar effekti
   const navbarWrapper = document.querySelector('.navbar-wrapper');
   if (navbarWrapper) {
     window.addEventListener('scroll', () => {
-      if (window.scrollY > 40) {
+      if (window.scrollY > 30) {
         navbarWrapper.classList.add('scrolled');
       } else {
         navbarWrapper.classList.remove('scrolled');
       }
-    });
+    }, { passive: true });
   }
 
-  // 2. Mobil Menyu (Hamburger) va Overlay
   const mobileToggle = document.querySelector('.mobile-toggle');
   const navMenu = document.querySelector('.nav-menu');
   let overlay = document.querySelector('.menu-overlay');
@@ -27,20 +20,61 @@ document.addEventListener('DOMContentLoaded', () => {
     document.body.appendChild(overlay);
   }
 
+  if (navMenu && !navMenu.querySelector('.mobile-menu-footer')) {
+    const menuFooter = document.createElement('div');
+    menuFooter.className = 'mobile-menu-footer';
+    menuFooter.innerHTML = `
+      <a href="contact.html" class="btn btn-primary mobile-menu-btn">
+        <i class="fas fa-paper-plane"></i> Bog‘lanish
+      </a>
+      <a href="tel:+998909649491" class="mobile-menu-phone">
+        <i class="fas fa-phone-alt"></i> +998 90 964-94-91
+      </a>
+      <div class="mobile-menu-socials">
+        <a href="https://t.me" target="_blank" title="Telegram"><i class="fab fa-telegram-plane"></i></a>
+        <a href="https://instagram.com" target="_blank" title="Instagram"><i class="fab fa-instagram"></i></a>
+        <a href="https://facebook.com" target="_blank" title="Facebook"><i class="fab fa-facebook-f"></i></a>
+        <a href="https://youtube.com" target="_blank" title="YouTube"><i class="fab fa-youtube"></i></a>
+      </div>
+    `;
+    navMenu.appendChild(menuFooter);
+  }
+
   function openMenu() {
     if (navMenu) navMenu.classList.add('active');
     if (overlay) overlay.classList.add('active');
+    if (mobileToggle) {
+      mobileToggle.classList.add('active');
+      mobileToggle.setAttribute('aria-expanded', 'true');
+      mobileToggle.setAttribute('aria-label', 'Menyuni yopish');
+      const icon = mobileToggle.querySelector('i');
+      if (icon) {
+        icon.classList.remove('fa-bars');
+        icon.classList.add('fa-times');
+      }
+    }
     document.body.style.overflow = 'hidden';
   }
 
   function closeMenu() {
     if (navMenu) navMenu.classList.remove('active');
     if (overlay) overlay.classList.remove('active');
+    if (mobileToggle) {
+      mobileToggle.classList.remove('active');
+      mobileToggle.setAttribute('aria-expanded', 'false');
+      mobileToggle.setAttribute('aria-label', 'Menyuni ochish');
+      const icon = mobileToggle.querySelector('i');
+      if (icon) {
+        icon.classList.remove('fa-times');
+        icon.classList.add('fa-bars');
+      }
+    }
     document.body.style.overflow = '';
   }
 
   if (mobileToggle) {
-    mobileToggle.addEventListener('click', () => {
+    mobileToggle.addEventListener('click', (e) => {
+      e.stopPropagation();
       if (navMenu && navMenu.classList.contains('active')) {
         closeMenu();
       } else {
@@ -53,7 +87,35 @@ document.addEventListener('DOMContentLoaded', () => {
     overlay.addEventListener('click', closeMenu);
   }
 
-  // Oyna kattalashganda mobil menyuni yopish
+  document.addEventListener('click', (e) => {
+    if (navMenu && navMenu.classList.contains('active')) {
+      if (!navMenu.contains(e.target) && !mobileToggle.contains(e.target)) {
+        closeMenu();
+      }
+    }
+  });
+
+  const navDropdowns = document.querySelectorAll('.nav-item.has-dropdown');
+
+  if (navMenu) {
+    navMenu.addEventListener('click', (e) => {
+      const link = e.target.closest('a');
+      if (!link) return;
+      if (link.classList.contains('nav-link') && link.closest('.has-dropdown')) {
+        return;
+      }
+      if (window.innerWidth <= 991) {
+        closeMenu();
+      }
+    });
+  }
+
+  document.addEventListener('keydown', (e) => {
+    if (e.key === 'Escape' && navMenu && navMenu.classList.contains('active')) {
+      closeMenu();
+    }
+  });
+
   window.addEventListener('resize', () => {
     if (window.innerWidth > 991) {
       closeMenu();
@@ -61,16 +123,14 @@ document.addEventListener('DOMContentLoaded', () => {
     }
   });
 
-  // 3. Mobil Dropdown Menyular (Accordion)
-  const navDropdowns = document.querySelectorAll('.nav-item.has-dropdown');
   navDropdowns.forEach(item => {
     const link = item.querySelector('.nav-link');
     if (link) {
       link.addEventListener('click', (e) => {
         if (window.innerWidth <= 991) {
           e.preventDefault();
+          e.stopPropagation();
           const isOpen = item.classList.contains('open');
-          // Boshqa ochiqlarini yopish
           navDropdowns.forEach(other => {
             if (other !== item) other.classList.remove('open');
           });
@@ -84,7 +144,6 @@ document.addEventListener('DOMContentLoaded', () => {
     }
   });
 
-  // 4. Statistika Raqamlari Hisoblagichi (Counter Animation)
   const statNumbers = document.querySelectorAll('.stat-number');
   let animated = false;
 
@@ -93,7 +152,7 @@ document.addEventListener('DOMContentLoaded', () => {
       const target = +counter.getAttribute('data-target');
       const prefix = counter.getAttribute('data-prefix') || '';
       const suffix = counter.getAttribute('data-suffix') || '';
-      const duration = 2000; // ms
+      const duration = 2000;
       const stepTime = 20;
       const steps = duration / stepTime;
       const increment = target / steps;
@@ -120,12 +179,11 @@ document.addEventListener('DOMContentLoaded', () => {
           runCounters();
         }
       });
-    }, { threshold: 0.25 });
+    }, { threshold: 0.1 });
 
     observer.observe(statsSection);
   }
 
-  // 5. Yutuqlar Tablari (Tabs in Achievements)
   const tabButtons = document.querySelectorAll('.tab-btn');
   const achievementCards = document.querySelectorAll('.achievement-card');
 
@@ -148,7 +206,6 @@ document.addEventListener('DOMContentLoaded', () => {
     });
   }
 
-  // 6. Aloqa / Qabul Formasi tekshiruvi va yuborish xabari
   const contactForms = document.querySelectorAll('.ajax-form');
   contactForms.forEach(form => {
     form.addEventListener('submit', (e) => {
@@ -172,7 +229,6 @@ document.addEventListener('DOMContentLoaded', () => {
     });
   });
 
-  // 7. Faol Havolani belgilash (Active Nav Link)
   const currentPath = window.location.pathname.split('/').pop() || 'index.html';
   const navLinks = document.querySelectorAll('.nav-link, .dropdown-item');
   navLinks.forEach(link => {
@@ -189,12 +245,10 @@ document.addEventListener('DOMContentLoaded', () => {
     }
   });
 
-  // 8. Silliq Sahifadan-Sahifaga O'tish (Smooth Page Transitions)
   const internalLinks = document.querySelectorAll('a[href]');
   internalLinks.forEach(link => {
     const href = link.getAttribute('href');
 
-    // Faqat ichki sahifalar uchun
     if (
       href &&
       !href.startsWith('http') &&
@@ -207,7 +261,6 @@ document.addEventListener('DOMContentLoaded', () => {
       !link.hasAttribute('download')
     ) {
       link.addEventListener('click', (e) => {
-        // Ctrl, Shift, Cmd (yangi oynada ochish) bosilganda o'tishni to'xtatmaslik
         if (e.metaKey || e.ctrlKey || e.shiftKey) return;
 
         const targetUrl = link.href;
@@ -222,8 +275,31 @@ document.addEventListener('DOMContentLoaded', () => {
     }
   });
 
-  // Brauzer "Orqaga / Oldinga" tugmalari bosilganda sahifani qayta tiklash
   window.addEventListener('pageshow', () => {
     document.body.classList.remove('page-exit');
+  });
+
+  let backToTopBtn = document.querySelector('.back-to-top');
+  if (!backToTopBtn) {
+    backToTopBtn = document.createElement('button');
+    backToTopBtn.className = 'back-to-top';
+    backToTopBtn.setAttribute('aria-label', 'Sahifa boshiga qaytish');
+    backToTopBtn.innerHTML = '<i class="fas fa-chevron-up"></i>';
+    document.body.appendChild(backToTopBtn);
+  }
+
+  window.addEventListener('scroll', () => {
+    if (window.scrollY > 350) {
+      backToTopBtn.classList.add('active');
+    } else {
+      backToTopBtn.classList.remove('active');
+    }
+  });
+
+  backToTopBtn.addEventListener('click', () => {
+    window.scrollTo({
+      top: 0,
+      behavior: 'smooth'
+    });
   });
 });
