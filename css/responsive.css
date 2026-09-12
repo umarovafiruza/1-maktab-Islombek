@@ -29,7 +29,8 @@
   }
 
   .leadership-grid,
-  .students-grid {
+  .students-grid,
+  .teachers-grid {
     grid-template-columns: repeat(3, 1fr);
   }
 }
@@ -127,7 +128,8 @@
   }
 
   .leadership-grid,
-  .students-grid {
+  .students-grid,
+  .teachers-grid {
     grid-template-columns: repeat(3, 1fr);
     gap: 1.5rem;
   }
@@ -405,6 +407,7 @@
 
   .leadership-grid,
   .students-grid,
+  .teachers-grid,
   .news-grid {
     grid-template-columns: repeat(2, 1fr);
     gap: 1.75rem;
@@ -588,6 +591,7 @@
 
   .leadership-grid,
   .students-grid,
+  .teachers-grid,
   .achievements-grid,
   .news-grid {
     grid-template-columns: 1fr;
